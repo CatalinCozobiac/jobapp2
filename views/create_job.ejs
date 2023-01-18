@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Node.js upload images</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <style>
+      div.preview-images > img {
+        width: 20%;
+      }
+    </style>
+  </head>
+
+
+
+
+<div class="container">
+    <div class="title">
+        <h1> Job Posting</h1>
+    </div>
+    <form method="POST" action='/create_job' enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="subcontName">Subcontractor Name</label>
+            <input type="text" class="form-control" name="name">
+          </div>
+        <div class="form-group">
+            <label for="subcontEmail">Email address</label>
+            <input type="email" class="form-control"  name="email">
+          </div>
+          <div class="form-group">
+            <label for="jobLocation">Job Location</label>
+            <input type="text" class="form-control"  name="location">
+          </div>
+          <div class="form-group">
+            <label for="jobDescription">Job Description</label>
+            <textarea type="text" class="form-control"  name="jobd"></textarea>
+          </div>
+          <div class="row">
+            <div class="col-10">
+            <input type="file" class="form-control" name="images" id="formFile" multiple>
+          </div>
+          </div>
+          </div>
+          <br>
+          <br>
+          <button class="btn btn-primary" style="margin-left: 2%;">Submit Job</button>
+    
+        </form>
+    </div>

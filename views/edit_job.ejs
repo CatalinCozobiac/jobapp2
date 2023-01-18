@@ -1,0 +1,27 @@
+<h2>Update Job</h2>
+<form method="POST" action="../edit_job/<%- job.job._id %>">
+  <form method="POST" id="" action="create_job">
+    <p style="color: crimson;">Make sure you fill all fields and not leave placeholders empty.</p>
+    <div class="form-group">
+        <label for="subcontName"><b>Subcontractor Name</b></label>
+        <input type="text" class="form-control" name="name" placeholder="<%- job.job.subcontName %>" required>
+      </div>
+    <div class="form-group">
+        <label for="subcontEmail"><b>Email address</b></label>
+        <input type="email" class="form-control"  name="email" placeholder="<%- job.job.subcontEmail %>" required>
+      </div>
+      <div class="form-group">
+        <label for="jobLocation"><b>Job Location: </b></label>
+        <input type="text" class="form-control"  name="location" placeholder="<%- job.job.jobLocation %>" required>
+      </div>
+      <b>Old description:</b>
+      <div class="card" style="border-width: 2px;"> <div style="padding: 15px"><p><%- job.job.jobDescription %></p></div></div>
+
+      <div class="form-group">
+        <label for="jobDescription"><b>New Description: </b><i>(Note: if there is no change in description, just copy the old one over)</i></label>
+        <textarea type="text" class="form-control"  name="jobd" required></textarea>
+      </div>
+      <br>
+      <button class="btn btn-primary">Submit Job</button>
+  
+  </form>

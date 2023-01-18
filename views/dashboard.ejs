@@ -1,0 +1,63 @@
+<h1>Dashboard</h1>
+<div class="card" style="width: 50%; border-width: 2px; border-color: black; margin:auto; text-align: center;">
+  <div class="card-body">
+    <h5 class="card-title">Upload jobs</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Please fill out as much information as possible when posting a job</h6>
+    <p class="card-text">Note: You can also upload as many pictures as you need</p>
+    <a class="card-link btn btn-primary" href="../create_job">Add Job</a>
+
+  </div>
+</div>
+
+
+<h3> Uploaded jobs</h3>
+<% if (typeof jobs.jobs !== 'undefined' && jobs.jobs.length> 0) { %>
+<% jobs.jobs.forEach( function(job, index){ %>
+
+  <div class="content" name="job">
+<div class="card" style="width: 100%; border-width: 2px; border-color: black; text-align: left;  margin-top: 2em; ">
+
+
+    <div class="job">
+    <div class="card-body" >
+        <h3><%- job.subcontName %></h3>
+        <h6><%- job.subcontEmail %></h6>
+        <div class="container" >
+ 
+        <p>Job pictures: </p>
+        <div class="row">
+          <div class="column"></div>
+          <div class="column" style="margin-left: 25%;">
+
+        <% job.img.file_name.forEach(function(item){ %>
+
+          <img style="max-width: 50%; max-height: 40%; margin-top: 2%;" src="./static/<%- item %>" alt=""><br /> 
+          <a class="card-link btn btn-primary" style="background-color: lightseagreen; border-color: lightseagreen; margin-left: 30%;" href="./static/<%- item %>" download>Download</a><br /> 
+        <% }) %>
+      </div>
+      <div class="column"></div>
+    </div>
+        <p>Job Location: <%- job.jobLocation %></p>
+        <div class="card" style="border-width: 2px; border-color: black;">Description: <div style="padding: 15px"><%- job.jobDescription %></div></div>
+ 
+ 
+        <p>Posted on: <%- job.date %></p>
+        <% if(session.admin){ %>
+        <div style="position: relative; margin-left: 40%;">
+          <a class="card-link btn btn-primary" style="background-color: green; border-color: green;" href="../edit_job/<%- job._id %>">Update</a> <a class="card-link btn btn-primary" style="background-color: crimson; border-color: crimson;" href="../delete_job/<%- job._id %>">Delete</a>
+        </div>
+        <% } %>
+
+
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+
+      <% })  %>
+  <% } %>  
+
+  
+
+ 
